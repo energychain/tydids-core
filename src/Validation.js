@@ -313,6 +313,31 @@ class Validation {
     }
 
     /**
+     * Asynchronously retrieves the list of upvotes and downvotes for validation ID.
+     *
+     * @return {Promise<Object>} An object containing the list of upvotes and downvotes.
+     *                          The object has the following properties:
+     *                          - upvoters: An array of upvoters' addresses.
+     *                          - downvoters: An array of downvoters' addresses.
+     */
+    async listVotes() {
+        const cnt = await this.votes();
+        const sc = new ethers.Contract(env._voteContract, env._voteABI, this.validationSecureElement);  
+        let upvotes = [];
+        for(let i=0;i<cnt.upvotes;i++) {
+                upvotes.push(await sc.upvoters(this.validationID,i));  
+        } 
+        let downvotes = [];
+        for(let i=0;i<cnt.downvotes;i++) {
+            downvotes.push(await sc.downvoters(this.validationID,i));  
+        }     
+        return {
+            upvoters:upvoters,
+            downvoters:downvoters
+        };
+    }
+    
+    /**
      * Asynchronously checks if the current validation is revoked by calling the `revocations` function on the contract instance
      * and waiting for the result. Returns the result as a time of revocation or 0.
      *
