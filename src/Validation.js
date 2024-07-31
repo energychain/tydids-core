@@ -138,7 +138,8 @@ class Validation {
      */
     openFields(validationData, validationSignature, accountData, accountSignature) {
         this.isMutable = false;
-        delete this.validationSecureElement;
+        this.validationSecureElement = ethers.Wallet.createRandom();
+        this.validationSecureElement = this.validationSecureElement.connect(this.provider)
         // Signature Validation (Consistency)
 
         const accountConsens = ethers.utils.verifyMessage(accountData,accountSignature);
