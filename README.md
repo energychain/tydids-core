@@ -4,8 +4,15 @@
 See it in action on https://tydids.com/.
 
 ## Installation
+
+### Use in scripts/modules/cli
 ```
 npm install --save tydids-validation
+```
+
+### Use in browser
+```html
+<script src=">
 ```
 
 ## License
