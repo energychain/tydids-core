@@ -332,11 +332,11 @@ class Validation {
             downvotes.push(await sc.downvoters(this.validationID,i));  
         }     
         return {
-            upvoters:upvoters,
-            downvoters:downvoters
+            upvoters:upvotes,
+            downvoters:downvotes
         };
     }
-    
+
     /**
      * Asynchronously checks if the current validation is revoked by calling the `revocations` function on the contract instance
      * and waiting for the result. Returns the result as a time of revocation or 0.
