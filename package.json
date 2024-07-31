@@ -1,0 +1,39 @@
+{
+  "name": "tydids-validation",
+  "version": "1.0.0",
+  "description": "Tydids (e)ID Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/energychain/tydids-validation.git"
+  },
+  "keywords": [
+    "tydids",
+    "did",
+    "ssi",
+    "ethereum",
+    "eid",
+    "eidas",
+    "compliance",
+    "kyc"
+  ],
+  "author": "STROMDAO GmbH <dev@stromdao.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/energychain/tydids-validation/issues"
+  },
+  "homepage": "https://github.com/energychain/tydids-validation#readme",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "ethers": "5.2"
+  },
+  "devDependencies": {
+    "mocha": "^10.7.0",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
