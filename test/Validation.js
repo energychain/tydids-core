@@ -254,12 +254,68 @@ describe('Validation', function () {
     });
     
   });
-  describe('#Use Cases: UI', () => {
+  describe('#TyDIDsGraph Methods', () => {
 
     const Validation = require("../src/Validation.js");
     const ethers = require("ethers");
 
-    it('key_1/value_1 is available', async function () {
+    it('upvote', async function () {
+        this.timeout(30000);
+        const mySigner = new ethers.Wallet.createRandom();
+        const randomKey = ""+Math.random();
+        const randomValue = ""+Math.random();
+        const randomValue2 = ""+Math.random();
+
+        const instance = new Validation();     
+        await instance.upvote(instance.validationID);
+
+        const votes = await instance.votes();
+        assert.equal(votes.upvotes, 1);
+        return;
+    });
+    it('downvote', async function () {
+        this.timeout(30000);
+        const mySigner = new ethers.Wallet.createRandom();
+        const randomKey = ""+Math.random();
+        const randomValue = ""+Math.random();
+        const randomValue2 = ""+Math.random();
+
+        const instance = new Validation();     
+        await instance.downvote(instance.validationID);
+
+        const votes = await instance.votes();
+        assert.equal(votes.upvotes, 0);
+        assert.equal(votes.downvotes, 1);
+        return;
+    });
+    it('double upvote', async function () {
+        this.timeout(30000);
+        const mySigner = new ethers.Wallet.createRandom();
+        const randomKey = ""+Math.random();
+        const randomValue = ""+Math.random();
+        const randomValue2 = ""+Math.random();
+
+        const instance = new Validation();     
+        await instance.upvote(instance.validationID);
+        await instance.upvote(instance.validationID);
+        const votes = await instance.votes();
+        assert.equal(votes.upvotes, 1);
+        
+        return;
+    });
+    it('upvote and downvote', async function () {
+        this.timeout(30000);
+        const mySigner = new ethers.Wallet.createRandom();
+        const randomKey = ""+Math.random();
+        const randomValue = ""+Math.random();
+        const randomValue2 = ""+Math.random();
+
+        const instance = new Validation();     
+        await instance.upvote(instance.validationID);
+        await instance.downvote(instance.validationID);
+        const votes = await instance.votes();
+        assert.equal(votes.upvotes, 0);
+        assert.equal(votes.downvotes, 1);
         return;
     });
   });

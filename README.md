@@ -22,6 +22,9 @@ See it in action on https://tydids.com/.
   - [isPublishedAt](#ispublishedat)
   - [revoke](#revoke)
   - [isRevokedAt](#isrevokedat)
+  - [upvote](#upvote)
+  - [downvote](#downvote)
+  - [votes](#votes)
   - [attachSigner](#attachsigner)
   - [signAccountData](#signaccountdata)
 - [Test Cases](#test-cases)
@@ -132,6 +135,18 @@ Asynchronously revokes this validation by calling the `revoke` function on the v
 ### isRevokedAt
 
 Asynchronously checks if the current validation is revoked by calling the `revocations` function on the validation contract and waiting for the result.
+
+### upvote
+
+Asynchronously upvotes a given address by calling the `upvote` function on the contract instance and waiting for the transaction to be mined. Returns the transaction receipt.
+
+### downvote
+
+Asynchronously downvotes a given address by calling the `downvote` function on the contract instance and waiting for the transaction to be mined. Returns the transaction receipt.
+
+### votes
+
+Asynchronously retrieves the number of upvotes and downvotes for a this validation ID.
 
 ### attachSigner
 

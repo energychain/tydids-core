@@ -265,6 +265,53 @@ class Validation {
     }
 
     /**
+     * Asynchronously upvotes a given address by calling the `upvote` function on the contract instance
+     * and waiting for the transaction to be mined. Returns the transaction receipt.
+     *
+     * @param {string} address - The address to upvote.
+     * @return {Promise<object>} The transaction receipt object.
+     */
+    async upvote(address) {
+        const sc = new ethers.Contract(env._voteContract, env._voteABI, this.validationSecureElement);      
+        const rcp = await sc.upvote(address);
+        const receipt = await rcp.wait();
+        return receipt;
+    }
+
+    /**
+     * Asynchronously downvotes a given address by calling the `downvote` function on the contract instance
+     * and waiting for the transaction to be mined. Returns the transaction receipt.
+     *
+     * @param {string} address - The address to downvote.
+     * @return {Promise<object>} The transaction receipt object.
+     */
+    async downvote(address) {
+        const sc = new ethers.Contract(env._voteContract, env._voteABI, this.validationSecureElement);      
+        const rcp = await sc.downvote(address);
+        const receipt = await rcp.wait();
+        return receipt;
+    }
+
+    /**
+     * Asynchronously retrieves the number of upvotes and downvotes for a this validation ID.
+     *
+     * @return {Promise<Object>} An object containing the number of upvotes and downvotes.
+     *                          The object has the following properties:
+     *                          - upvotes: The number of upvotes as a number.
+     *                          - downvotes: The number of downvotes as a number.
+     */
+    async votes() {
+        const sc = new ethers.Contract(env._voteContract, env._voteABI, this.validationSecureElement);      
+        const upvotes = await sc.upvoteCount(this.validationID);        
+        const downvotes = await sc.downvoteCount(this.validationID);
+        
+        return {
+            upvotes: upvotes.toString() * 1,
+            downvotes: downvotes.toString() * 1
+        };
+    }
+
+    /**
      * Asynchronously checks if the current validation is revoked by calling the `revocations` function on the contract instance
      * and waiting for the result. Returns the result as a time of revocation or 0.
      *
