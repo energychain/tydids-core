@@ -23,6 +23,10 @@ You can directly include the library in your HTML project using a CDN link:
 <script src="https://unpkg.com/tydids-validation@latest/dist/tydids.js"></script>
 <script>
    const validation = new window.TyDIDs.Validation();
+   // or 
+   const dataidentity = new window.TyDIDs.DataIdentity();
+   // or 
+   const ssi = new window.TyDIDs.SSI(key);
 </script>
 ```
 
