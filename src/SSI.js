@@ -21,36 +21,15 @@ const ethers = require("ethers");
 
 const env = require("./Env.js");
 
-class DataIdentity {
-    #payload = "";
-    #signature = "";
+class SSI {
+
     #identity = "";
-    #privateKey = "";
 
-    constructor(payload) {
-        if(typeof payload == 'object') payload = JSON.stringify(payload);
-        if(!isNaN(payload)) payload = "" + payload;
-        this.#payload = payload;
-        this.#initSecureElement();
-    }
-
-    #initSecureElement() {
-        this.dataSecureElement = ethers.Wallet.createRandom();        
-        this.#identity = this.dataSecureElement.address;        
+    constructor(privateKey) {
+        const secureElement = new ethers.Wallet(privateKey);    
         this.provider = new ethers.providers.JsonRpcProvider(env._RPC_URL);        
-        this.dataSecureElement = this.dataSecureElement.connect(this.provider);       
-        this.#privateKey = this.dataSecureElement.privateKey;
-    }
-
-    async consensus() {
-        if(this.#signature.length == 0) {
-            this.#signature = await this.dataSecureElement.signMessage(this.#payload);
-        }
-        return {
-            payload: this.#payload,
-            signature: this.#signature,
-            identity: this.#identity
-        }
+        this.secureElement = secureElement.connect(this.provider); 
+        this.#identity = secureElement.address;
     }
 
      /**
@@ -59,7 +38,7 @@ class DataIdentity {
      * @return {Promise<ethers.providers.TransactionReceipt>} A promise that resolves to the transaction receipt of the publish transaction.
      */
      async publish() {                
-        const sc = new ethers.Contract(env._publishContract, env._publishAbi, this.dataSecureElement);      
+        const sc = new ethers.Contract(env._publishContract, env._publishAbi, this.secureElement);      
         const rcp = await sc.publish();
         const receipt = await rcp.wait();
         return receipt;
@@ -71,9 +50,34 @@ class DataIdentity {
      * @return {Promise<any>} A promise that resolves to the result of the `publishs` function with time stamp of publishing or 0
      */
     async isPublishedAt() {                        
-        const sc = new ethers.Contract(env._publishContract, env._publishAbi, this.dataSecureElement);      
+        const sc = new ethers.Contract(env._publishContract, env._publishAbi, this.secureElement);      
         const rcp = await sc.publishs(this.#identity);
         return rcp.toString() * 1;    
+    }
+
+    /**
+     * Asynchronously revokes this validation by calling the `revoke` function on the contract instance
+     * and waiting for the transaction to be mined. Returns the transaction receipt.
+     *
+     * @return {Promise<object>} The transaction receipt object.
+     */
+    async revoke() {
+            const sc = new ethers.Contract(env._revokeContract, env._revokeAbi, this.secureElement);      
+            const rcp = await sc.revoke();
+            const receipt = await rcp.wait();
+            return receipt;
+    }
+
+    /**
+     * Asynchronously checks if identity is revoked by calling the `revocations` function on the contract instance
+     * and waiting for the result. Returns the result as a time of revocation or 0.
+     *
+     * @return {Promise<number>} Returns revocation timestamp or 0 if not revoked.
+     */
+    async isRevokedAt() {
+            const sc = new ethers.Contract(env._revokeContract, env._revokeAbi, this.secureElement);      
+            const rcp = await sc.revocations(this.#identity);
+            return rcp.toString() * 1;    
     }
 
     /**
@@ -84,49 +88,11 @@ class DataIdentity {
     getIdentity() {
         return this.#identity;
     }
-    /**
-     * Asynchronously revokes this validation by calling the `revoke` function on the contract instance
-     * and waiting for the transaction to be mined. Returns the transaction receipt.
-     *
-     * @return {Promise<object>} The transaction receipt object.
-     */
-    async revoke() {
-        const sc = new ethers.Contract(env._revokeContract, env._revokeAbi, this.dataSecureElement);      
-        const rcp = await sc.revoke();
-        const receipt = await rcp.wait();
-        return receipt;
-    }
+    
 
-     /**
-     * Asynchronously checks if identity is revoked by calling the `revocations` function on the contract instance
-     * and waiting for the result. Returns the result as a time of revocation or 0.
-     *
-     * @return {Promise<number>} Returns revocation timestamp or 0 if not revoked.
-     */
-    async isRevokedAt() {
-        const sc = new ethers.Contract(env._revokeContract, env._revokeAbi, this.dataSecureElement);      
-        const rcp = await sc.revocations(this.#identity);
-        return rcp.toString() * 1;    
-    }
- 
-    /**
-     * Returns the SSI and flushes the secure element.
-     *
-     * @return {Promise<Object>} An object containing the private key, identity, signature, and payload.
-     */
-    async reveal () {   
-        await this.consensus();     
-        const response = {
-            privateKey: ""+this.#privateKey,
-            identity: ""+this.#identity,
-            signature: ""+this.#signature,
-            payload: ""+this.#payload
-        }        
-        this.#initSecureElement();        
-        await this.consensus();
-        return response;        
-    }
 
+
+    
 }
 
-module.exports = DataIdentity;
+module.exports = SSI;
