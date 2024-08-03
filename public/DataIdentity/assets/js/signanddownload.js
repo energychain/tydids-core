@@ -3,7 +3,7 @@
  *  
  */
 
-const signAndDownload = async function() {
+const signAndDownload = async function(ssi) {
     function openNewTabWithHTML(htmlContent) {
         const newTab = window.open();
         newTab.document.write(htmlContent);
