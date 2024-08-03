@@ -1,52 +1,39 @@
 # tydids-validation
-**Developers building applications on any ethereum based  blockchain can leverage the tydids-validation package to streamline the process of managing validation data. This library offers functionalities for secure data signing, contract interaction, and more.**
+**tydids-validation is a Node.js package that provides functionalities for Decentralized Identity (DID) based validation, authentication, and data privacy consent.**
 
-See it in action on https://tydids.com/.
+[Project Homepage](https://corrently.io/books/tydids-trust-framework)
 
-## Table of Contents
+### Installation
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Methods](#methods)
-  - [Constructor](#constructor)
-  - [getFields](#getfields)
-  - [toJSON](#tojson)
-  - [retrieveSecureElement](#retrievesecureelement)
-  - [attachSecureElement](#attachsecureelement)
-  - [addPDF](#addpdf)
-  - [openFields](#openfields)
-  - [openJSON](#openjson)
-  - [getValidationObjectToData](#getvalidationobjecttodata)
-  - [setValidationObject](#setvalidationobject)
-  - [publish](#publish)
-  - [isPublishedAt](#ispublishedat)
-  - [revoke](#revoke)
-  - [isRevokedAt](#isrevokedat)
-  - [upvote](#upvote)
-  - [downvote](#downvote)
-  - [votes](#votes)
-  - [attachSigner](#attachsigner)
-  - [signAccountData](#signaccountdata)
-- [Test Cases](#test-cases)
-- [License](#license)
-- [Maintainer / Impressum](#maintainer--impressum)
+There are two ways to install `tydids-validation`:
 
-## Installation
+**Using npm:**
 
-### Use in scripts/modules/cli
 ```
-npm install --save tydids-validation
+npm install tydids-validation
 ```
 
-### Use in browser
-```html
-<script src="https://unpkg.com/tydids-validation@latest/dist/tydids.js"></script>
-<script>
-   const validation = new window.TyDIDs.Validation();
-</script>
+This will install the package and its dependencies locally for use in your Node.js project.
+
+**Using HTML:**
+
+You can directly include the library in your HTML project using a CDN link:
+
+```
+<span>&lt;<span>script</span> <span>src</span>=<span>"https://unpkg.com/tydids-validation@latest/dist/tydids.js"</span>&gt;</span><span>&lt;/<span>script</span>&gt;</span>
+<span>&lt;<span>script</span>&gt;</span><span>
+   <span>const</span> validation = <span>new</span> <span>window</span>.TyDIDs.Validation();
+</span><span>&lt;/<span>script</span>&gt;</span>
 ```
 
-## Usage
+This approach is useful for quick integration in web applications without the need for local installation.
+
+### Usage
+
+For detailed usage examples and API reference, please refer to the files in the `./public` folder. You can also try a live demo of the functionalities at:
+
+-   [https://energychain.github.io/tydids-validation/public/](https://energychain.github.io/tydids-validation/public/)
+
 
 Here's an example of how to use the Validation class:
 
@@ -78,90 +65,20 @@ const publishedAt = await validation.isPublishedAt();
 console.log("Published at:", publishedAt);
 ```
 
-## Methods
+### [Contributing](./CONTRIBUTING.md)
 
-### Constructor
+We welcome contributions to `tydids-validation`. If you have improvements or new features, please create a pull request on the project's GitHub repository.
 
-Constructs a new instance of the class. Initializes the object with default values for various properties.
+### License
 
-### getFields
-
-Returns an object containing the validation data, validation signature, account data, and account signature.
-
-### toJSON
-
-Converts the object to a JSON string representation by calling the `getFields()` method and using `JSON.stringify()` to serialize the result.
-
-### retrieveSecureElement
-
-Asynchronously retrieves the secure element by encrypting it with the provided password.
-
-### attachSecureElement
-
-Asynchronously attaches a secure element to the current object by decrypting the provided encrypted JSON using the provided password.
-
-### addPDF
-
-Asynchronously adds a PDF file as validation data by uploading it to a Corrently IPFS service and storing the hash in the validation object.
-
-### openFields
-
-Opens the fields of the validation object by populating the object with the provided data and signatures.
-
-### openJSON
-
-Parses the provided JSON string and opens the fields using the `openFields` method.
-
-### getValidationObjectToData
-
-Returns the validation data as a URI-encoded JSON string.
-
-### setValidationObject
-
-Sets the validation data for the object, ensuring that only allowed fields are present.
-
-### publish
-
-Announces the current validation by calling the `publish` function of the validation contract.
-
-### isPublishedAt
-
-Checks if the current validation is published by calling the `publishs` function of the validation contract.
-
-### revoke
-
-Asynchronously revokes this validation by calling the `revoke` function on the validation contract and waiting for the transaction to be mined.
-
-### isRevokedAt
-
-Asynchronously checks if the current validation is revoked by calling the `revocations` function on the validation contract and waiting for the result.
-
-### upvote
-
-Asynchronously upvotes a given address by calling the `upvote` function on the contract instance and waiting for the transaction to be mined. Returns the transaction receipt.
-
-### downvote
-
-Asynchronously downvotes a given address by calling the `downvote` function on the contract instance and waiting for the transaction to be mined. Returns the transaction receipt.
-
-### votes
-
-Asynchronously retrieves the number of upvotes and downvotes for a this validation ID.
-
-### attachSigner
-
-Attaches a signer to the current instance.
-
-### signAccountData
-
-Signs the account data using the signer and updates the account signature and isSigned status.
+This project is licensed under the Apache-2.0 License. Please see the [LICENSE](LICENSE) file for more details.
 
 ## Test Cases
 
 The repository includes test cases that demonstrate how to use the Validation class. To run the test cases, navigate to the project directory and run `npm test`.
 
 ## License
-[Apache-2.0](LICENSE)
+
 
 
 ## Maintainer / Impressum

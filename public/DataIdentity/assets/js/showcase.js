@@ -1,8 +1,23 @@
 $(document).ready(function(e) {
     $('#createSSI').on('click',function(e) {
         $('#createSSI').attr('disabled','disabled');
+        function captureFormFields() {
+            let formData = {};
+          
+            $('input, textarea, select').each(function() {
+              let $this = $(this);
+              let name = $this.attr('name');
+              let value = $this.val();
+          
+              if (name) {
+                formData[name] = value;
+              }
+            });
+          
+            return formData;
+        }
 
-        const payload = {"Hallo":"Welt"};
+        const payload = captureFormFields();
 
         const ssi = new window.TyDIDs.DataIdentity(payload);
         $('#ssiAddress').html(ssi.getIdentity());
