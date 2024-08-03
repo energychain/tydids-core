@@ -20,10 +20,10 @@ This will install the package and its dependencies locally for use in your Node.
 You can directly include the library in your HTML project using a CDN link:
 
 ```
-<span>&lt;<span>script</span> <span>src</span>=<span>"https://unpkg.com/tydids-validation@latest/dist/tydids.js"</span>&gt;</span><span>&lt;/<span>script</span>&gt;</span>
-<span>&lt;<span>script</span>&gt;</span><span>
-   <span>const</span> validation = <span>new</span> <span>window</span>.TyDIDs.Validation();
-</span><span>&lt;/<span>script</span>&gt;</span>
+<script src="https://unpkg.com/tydids-validation@latest/dist/tydids.js"></script>
+<script>
+   const validation = new window.TyDIDs.Validation();
+</script>
 ```
 
 This approach is useful for quick integration in web applications without the need for local installation.
