@@ -3,6 +3,10 @@
 
 [Project Homepage](https://corrently.io/books/tydids-trust-framework)
 
+<html>
+<script async src="//jsfiddle.net/stromdao/87fqscw0/11/embed/js,html,css,result/dark/"></script>
+</html>
+
 ### Installation
 
 There are two ways to install `tydids-validation`:
