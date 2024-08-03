@@ -1,6 +1,6 @@
 {
   "name": "tydids-validation",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Tydids (e)ID Framework",
   "main": "index.js",
   "scripts": {
