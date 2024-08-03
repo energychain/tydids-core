@@ -69,6 +69,27 @@ const publishedAt = await validation.isPublishedAt();
 console.log("Published at:", publishedAt);
 ```
 
+#### Shell Script
+
+Install:
+```shell
+npm install -g tydids-validation
+```
+
+```shell
+tydids -h
+```
+
+Revoke with given SSI File:
+```shell
+tydids revoke <path_to_ssi_*.html>
+```
+
+Check if granted:
+```shell
+tydids isgranted <identity>
+```
+
 ### [Contributing](./CONTRIBUTING.md)
 
 We welcome contributions to `tydids-validation`. If you have improvements or new features, please create a pull request on the project's GitHub repository.
