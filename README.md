@@ -1,7 +1,7 @@
 # tydids-validation
 **tydids-validation is a Node.js package that provides functionalities for Decentralized Identity (DID) based validation, authentication, and data privacy consent.**
 
-[Project Homepage](https://corrently.io/books/tydids-trust-framework)
+[Project Homepage](https://corrently.io/books/tydids-trust-framework) | [JSFiddle](https://jsfiddle.net/stromdao/87fqscw0/11/)
 
 <html>
 <script async src="//jsfiddle.net/stromdao/87fqscw0/11/embed/js,html,css,result/dark/"></script>
