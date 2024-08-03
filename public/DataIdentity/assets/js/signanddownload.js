@@ -1,3 +1,8 @@
+/**
+ * File does only exist to allow jsFiddle or similar for testing.
+ *  
+ */
+
 const signAndDownload = async function() {
     function openNewTabWithHTML(htmlContent) {
         const newTab = window.open();
