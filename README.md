@@ -77,10 +77,6 @@ This project is licensed under the Apache-2.0 License. Please see the [LICENSE](
 
 The repository includes test cases that demonstrate how to use the Validation class. To run the test cases, navigate to the project directory and run `npm test`.
 
-## License
-
-
-
 ## Maintainer / Impressum
 
 <addr>
