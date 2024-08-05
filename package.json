@@ -1,7 +1,7 @@
 {
-  "name": "tydids-validation",
+  "name": "tydids-core",
   "version": "1.0.13",
-  "description": "Tydids (e)ID Framework",
+  "description": "A JavaScript library that empowers user defined Self-Sovereign Identity & Consent Management",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/energychain/tydids-validation.git"
+    "url": "git+https://github.com/energychain/tydids-core.git"
   },
   "keywords": [
     "tydids",

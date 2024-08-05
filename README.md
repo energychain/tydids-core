@@ -1,20 +1,20 @@
-# tydids-validation
-**tydids-validation is a Node.js package that provides functionalities for Decentralized Identity (DID) based validation, authentication, and data privacy consent.**
+# tydids-core
+**tydids-core is a Node.js package that provides functionalities for Decentralized Identity (DID) based validation, authentication, and data privacy consent.**
 
-[Project Homepage](https://corrently.io/books/tydids-trust-framework) | [JSFiddle](https://jsfiddle.net/stromdao/87fqscw0/12/)
+[Project Homepage](https://corrently.io/books/tydids) | [JSFiddle](https://jsfiddle.net/stromdao/87fqscw0/13/)
 
 <html>
-<script async src="//jsfiddle.net/stromdao/87fqscw0/12/embed/js,html,css,result/dark/"></script>
+<script async src="//jsfiddle.net/stromdao/87fqscw0/13/embed/js,html,result/dark/"></script>
 </html>
 
 ### Installation
 
-There are two ways to install `tydids-validation`:
+There are two ways to install `tydids-core`:
 
 **Using npm:**
 
 ```
-npm install tydids-validation
+npm install tydids-core
 ```
 
 This will install the package and its dependencies locally for use in your Node.js project.
@@ -24,7 +24,7 @@ This will install the package and its dependencies locally for use in your Node.
 You can directly include the library in your HTML project using a CDN link:
 
 ```
-<script src="https://unpkg.com/tydids-validation@latest/dist/tydids.js"></script>
+<script src="https://unpkg.com/tydids-core@latest/dist/tydids.js"></script>
 <script>
    const validation = new window.TyDIDs.Validation();
    // or 
@@ -40,7 +40,7 @@ This approach is useful for quick integration in web applications without the ne
 
 For detailed usage examples and API reference, please refer to the files in the `./public` folder. You can also try a live demo of the functionalities at:
 
--   [https://energychain.github.io/tydids-validation/public/](https://energychain.github.io/tydids-validation/public/)
+-   [https://energychain.github.io/tydids-core/public/](https://energychain.github.io/tydids-core/public/)
 
 
 Here's an example of how to use the Validation class:
@@ -77,7 +77,7 @@ console.log("Published at:", publishedAt);
 
 Install:
 ```shell
-npm install -g tydids-validation
+npm install -g tydids-core
 ```
 
 ```shell
@@ -96,7 +96,7 @@ tydids isgranted <identity>
 
 ### [Contributing](./CONTRIBUTING.md)
 
-We welcome contributions to `tydids-validation`. If you have improvements or new features, please create a pull request on the project's GitHub repository.
+We welcome contributions to `tydids-core`. If you have improvements or new features, please create a pull request on the project's GitHub repository.
 
 ### License
 
