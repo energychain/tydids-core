@@ -1,16 +1,16 @@
 var assert = require('assert');
 
-describe('DataIdentity', function () {
+describe('DecentralizedIdentityConsent', function () {
 
   /**
    * Test instanciation with working parameters
    */
   describe('#Core Methods', () => {
 
-    const DataIdentity = require("../src/DataIdentity.js");
+    const DecentralizedIdentityConsent = require("../src/DecentralizedIdentityConsent.js");
     it('instanziation', async function () {
         const testPayload = {test:Math.random()};
-        const instance = new DataIdentity(testPayload);        
+        const instance = new DecentralizedIdentityConsent(testPayload);        
         
         const consensus = await instance.consensus();        
         assert.equal(consensus.signature.length,132);
@@ -22,7 +22,7 @@ describe('DataIdentity', function () {
     it('publish()', async function () {
         this.timeout(30000);
         const testPayload = {test:Math.random()};
-        const instance = new DataIdentity(testPayload);        
+        const instance = new DecentralizedIdentityConsent(testPayload);        
         
         const isPublishedAtUnpublished = await instance.isPublishedAt();
         assert.equal(isPublishedAtUnpublished,0);
@@ -37,7 +37,7 @@ describe('DataIdentity', function () {
     it('revoke()', async function () {
         this.timeout(30000);
         const testPayload = {test:Math.random()};
-        const instance = new DataIdentity(testPayload);        
+        const instance = new DecentralizedIdentityConsent(testPayload);        
         
         const isNotRevoked = await instance.isRevokedAt();
         assert.equal(isNotRevoked,0);
@@ -52,7 +52,7 @@ describe('DataIdentity', function () {
     it('reveal()', async function () {
         this.timeout(30000);
         const testPayload = {test:Math.random()};
-        const instance = new DataIdentity(testPayload);        
+        const instance = new DecentralizedIdentityConsent(testPayload);        
         
         const revealedObject = await instance.reveal();    
         const secondRevealedObject = await instance.reveal();        

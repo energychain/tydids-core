@@ -1,6 +1,6 @@
 window.TyDIDs = {
     Validation: require('./Validation.js'),
-    DataIdentity: require('./DataIdentity.js'),
+    DecentralizedIdentityConsent: require('./DecentralizedIdentityConsent.js'),
     SSI: require('./SSI.js'),
     Env: require('./Env.js'),
     external:  {
