@@ -49,7 +49,7 @@ $.fn.extend({
                     <html>
                     <head>
                         <title>Identity - ${revealedSSI.identity} - ${location}</title>
-                        <script src="https://unpkg.com/tydids-validation@latest/dist/tydids.js"></script>                    
+                        <script src="https://unpkg.com/tydids-core@latest/dist/tydids.js"></script>                    
                          <script type="application/ld+json" id="ssiObject">
                             ${ssiObject}
                         </script>
