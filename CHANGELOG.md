@@ -1,3 +1,9 @@
+## [1.0.19](https://github.com/energychain/tydids-core/compare/v1.0.18...v1.0.19) (2024-08-14)
+
+### Bug Fixes
+
+* Showcase html file generation. Loads Tydids Core from right package ([d6bf250](https://github.com/energychain/tydids-core/commit/d6bf2509e69312d84cd4df860b8a83d94ab5fd7b))
+
 ## [1.0.18](https://github.com/energychain/tydids-core/compare/v1.0.17...v1.0.18) (2024-08-11)
 
 ### Bug Fixes

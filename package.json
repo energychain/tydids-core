@@ -1,6 +1,6 @@
 {
   "name": "tydids-core",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "A JavaScript library that empowers user defined Self-Sovereign Identity & Consent Management",
   "main": "index.js",
   "scripts": {
