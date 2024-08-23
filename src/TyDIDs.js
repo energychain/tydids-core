@@ -6,8 +6,7 @@ window.TyDIDs = {
     SSIStatus: require('./SSIStatus.js'),
     external:  {
         ethers:require("ethers"),
-        axios:require("axios"),
-        EthCrypto:require("eth-crypto")
+        axios:require("axios")        
     }
 }
 if(typeof document !== 'undefined') {
