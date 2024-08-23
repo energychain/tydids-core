@@ -33,8 +33,11 @@
   },
   "homepage": "https://corrently.io/books/tydids-trust-framework",
   "dependencies": {
+    "assert": "^2.1.0",
     "axios": "^1.7.2",
+    "buffer": "^6.0.3",
     "commander": "^12.1.0",
+    "crypto-browserify": "^3.12.0",
     "eth-crypto": "^2.6.0",
     "ethers": "5.2",
     "jsdom": "^24.1.1"

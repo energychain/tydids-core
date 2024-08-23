@@ -17,5 +17,11 @@ module.exports = {
   },
   performance: {
     hints: false,  
+  },
+  resolve: {
+    fallback: {
+      crypto: require.resolve('crypto-browserify'),
+      "stream": false
+    }
   }
 };
