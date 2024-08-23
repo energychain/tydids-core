@@ -15,13 +15,27 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  resolve: {
+    fallback: { 
+      "stream": require.resolve("stream-browserify"),
+      "vm": require.resolve("vm-browserify")
+     }
+  },
   performance: {
     hints: false,  
-  },
-  resolve: {
-    fallback: {
-      crypto: require.resolve('crypto-browserify'),
-      "stream": false
-    }
+  },  
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
   }
 };

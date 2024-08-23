@@ -1,6 +1,6 @@
 {
   "name": "tydids-core",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "A JavaScript library that empowers user defined Self-Sovereign Identity & Consent Management",
   "main": "index.js",
   "scripts": {
@@ -39,12 +39,16 @@
     "commander": "^12.1.0",
     "crypto-browserify": "^3.12.0",
     "ethers": "5.2",
-    "jsdom": "^24.1.1"
+    "jsdom": "^24.1.1",
+    "stream-browserify": "^3.0.0",
+    "vm-browserify": "^1.1.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.25.4",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/release-notes-generator": "^14.0.1",
+    "babel-loader": "^9.1.3",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "mocha": "^10.7.0",
     "semantic-release": "^24.0.0",
