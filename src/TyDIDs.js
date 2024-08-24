@@ -1,4 +1,5 @@
 window.TyDIDs = {
+    version:"tydids-core@1.0.23",
     Validation: require('./Validation.js'),
     DecentralizedIdentityConsent: require('./DecentralizedIdentityConsent.js'),
     SSI: require('./SSI.js'),
