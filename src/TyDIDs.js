@@ -21,22 +21,7 @@ if(typeof document !== 'undefined') {
                 $('.card-footer').append(`<button class="btn btn-dark float-end" id="btnAddToWallet">Add to Wallet</button>`);
                 $('.card-body').css("overflow","auto");   
                 $('#btnAddToWallet').on('click',function(e) {
-                    var iframe = document.createElement('iframe');
-                    iframe.src = "https://wallet.tydids.com/";
-                    iframe.style.display = "none"; // Hide the iframe                                      
-                    document.body.appendChild(iframe);                                      
-                    function onIframeLoad() {                      
-                      if (iframe.contentDocument && iframe.contentDocument.readyState === "complete") {                        
-                        iframe.contentWindow.postMessage(ssiObject, "*"); // "*" indicates all origins
-                      } else {                        
-                        setTimeout(onIframeLoad, 100);
-                      }
-                    }
-                                      
-                    onIframeLoad();
-                  
-                    // Prevent default button click behavior (optional)
-                    e.preventDefault();
+                    location.href="https://wallet.tydids.com/"
                 });      
             } 
         }

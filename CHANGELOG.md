@@ -1,3 +1,9 @@
+## [1.0.22](https://github.com/energychain/tydids-core/compare/v1.0.21...v1.0.22) (2024-08-24)
+
+### Bug Fixes
+
+* Added Version information to window.TyDIDs object ([7b5ab78](https://github.com/energychain/tydids-core/commit/7b5ab7800035c17580fcae0c883224917502fbb4))
+
 ## [1.0.21](https://github.com/energychain/tydids-core/compare/v1.0.20...v1.0.21) (2024-08-23)
 
 ## [1.0.20](https://github.com/energychain/tydids-core/compare/v1.0.19...v1.0.20) (2024-08-14)
